@@ -1,5 +1,6 @@
 <?php
-
+use App\Http\Controllers\ComicController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', HomeController::class);
+
+Route::controller(ComicController::class)->group(function () {
+    Route::get('/', 'index')->name('comics.index');
+    Route::get('create', 'create')->name('comics.create');
+    Route::get('{id}', 'show')->name('comics.show');
+    Route::post('/', 'store') -> name ('comics.store');
+    Route::get('{id}/edit', 'edit')->name('comics.edit');
+    // El método put  es para actualizar registros en la base de datos con un formulario que no se envía por medio del método post
+    Route::put('{comic}', 'update') -> name ('comics.update');
+    Route::delete('{comic}', 'destroy') -> name ('comics.destroy');
+
 });
