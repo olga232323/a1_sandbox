@@ -1,15 +1,15 @@
 <?php
 
-// namespace App\Http\Controllers;
+namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 
-// class HomeController extends Controller
-// {
-//     // Métodos
-//     public function __invoke()
-//     {
-//         return view('home');
-//     }
-//     //invoke es cuando solo quiere poner un método
-// }
+class HomeController extends Controller
+{
+    // Métodos
+    public function __invoke()
+    {
+        return view('home');
+    }
+    //invoke es cuando solo quiere poner un método
+}

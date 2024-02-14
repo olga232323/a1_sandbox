@@ -16,7 +16,8 @@ class ComicController extends Controller
     public function index()
     {
         $comics = Comic::orderBy('id', 'desc')->paginate();
-        return view('index', compact('comics'));
+        // $comics = Comic::all();
+        return view('comics.index', compact('comics'));
     }
 
     /**
@@ -28,26 +29,26 @@ class ComicController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreComicRequest $request)
-    {
-        $comic  = new Comic(); // Instanciar un objeto de la clase comic
-        $comic->nombre = $request->nombre;
-        $comic->descripcion = $request->descripcion;
-        $comic->categoria = $request->categoria;
-
-        $comic->save(); // Guarda en la base de datos
-        return redirect()->route('comics.show', [$comic]); // Redirecciona a la vista del curso creado con parámetro
-    }
-
-    /**
      * Display the specified resource.
      */
     public function show($id)
     {
         $comic = Comic::findOrFail($id);
         return view('comics.show', compact('comic')); // Si llamas a las variables con el mismo nombre con el que las envias, puedes usar la función compact
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $comic  = new Comic(); // Instanciar un objeto de la clase comic
+        $comic->titulo = $request->titulo;
+        $comic->coleccion = $request->coleccion;
+        $comic->genero = $request->genero;
+
+        $comic->save(); // Guarda en la base de datos
+        return redirect()->route('comics.show', [$comic]); // Redirecciona a la vista del curso creado con parámetro
     }
 
     /**
@@ -64,9 +65,9 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic) // Instanciamos el objeto comic al llamar la función
     {
-        $comic->nombre = $request->nombre;
-        $comic->categoria = $request->categoria;
-        $comic->descripcion = $request->descripcion;
+        $comic->titulo = $request->titulo;
+        $comic->coleccion = $request->coleccion;
+        $comic->genero = $request->genero;
         $comic->save();
         return redirect()->route('comics.show', [$comic])->with("mensaje", "Comic actualizado correctamente");
     }

@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 @section('title', 'Show')
 @section('content')
-<h1>Bienvenido al comic {{$comic->nombre}}</h1>
+<h1>Bienvenido al comic {{$comic->titulo}}</h1>
 <a href="{{route('comics.index')}}">Vovler a página de comics</a></br>
 <a href="{{route('comics.create')}}">Crear comic nuevo</a></br>
 <form action="{{route('comics.destroy', $comic)}}" method="post">
@@ -19,6 +19,6 @@
 </div>
 @endif
 
-<p><strong> Categoria: </strong> {{$comic->cagtegoria}}</p>
-<p>{{$comic->descripcion}}</p>
+<p><strong> Colección: </strong> {{$comic->coleccion}}</p>
+<p><strong> Género: </strong> {{$comic->genero}}</p>
 @endsection

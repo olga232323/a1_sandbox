@@ -7,8 +7,8 @@
 <ul>
   @foreach ($comics as $comic)
   {{-- Listado de comics dos maneras --}}
-  {{-- <li>{{$loop->index}}: {{$comic['nombre']}} ({{$comic['descripcion']}})</li> --}}
-  <li>{{$comic->id}} <a href="{{route('comics.show', $comic->id)}}">{{$comic->nombre}}</a></li>
+  {{-- <li>{{$loop->index}}: {{$comic['titulo']}} ({{$comic['coleccion']}})</li> --}}
+  <li>{{$comic->id}} <a href="{{route('comics.show', $comic->id)}}">{{$comic->titulo}}</a></li>
   @endforeach
 </ul>
 {{$comics->links()}}

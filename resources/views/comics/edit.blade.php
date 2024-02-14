@@ -7,12 +7,12 @@
   @csrf
   <!-- Directiva de laravel que especifíca el método que vamos a utilizar para enviar el formulario -->
   @method('put')
-  <label for="nombre">Nombre: </label>
-  <input type="text" id="nombre" name="nombre" value="{{$comic->nombre}}"><br><br>
-  <label for="categoria">Categoría: </label>
-  <input type="text" id="categoria" name="categoria" value="{{$comic->categoria}}"><br><br>
-  <label for="descripcion">Descripción: </label>
-  <textarea name="descripcion" row="5" id="descripcion">{{$comic->descripcion}}</textarea><br><br>
+  <label for="titulo">Titulo: </label>
+  <input type="text" id="titulo" name="titulo" value="{{$comic->titulo}}"><br><br>
+  <label for="coleccion">Colección: </label>
+  <input type="text" id="coleccion" name="coleccion" value="{{$comic->coleccion}}"><br><br>
+  <label for="genero">Género: </label>
+  <textarea name="genero" row="5" id="genero">{{$comic->genero}}</textarea><br><br>
   <!-- Boton -->
   <button type="submit">Actualizar comic</button>
 </form>
